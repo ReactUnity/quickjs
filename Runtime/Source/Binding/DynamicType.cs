@@ -134,7 +134,7 @@ namespace QuickJS.Binding
             ClassDecl cls;
             var db = register.GetTypeDB();
             var ctx = (JSContext)register.GetContext();
-            var flags = DefaultFlags;
+            var flags = PublicFlags;
             var proto = db.FindPrototypeOf(_type, out _type_id);
 
             if (proto.IsNullish())
@@ -149,7 +149,7 @@ namespace QuickJS.Binding
                 }
                 else
                 {
-                    var constructors = _type.GetConstructors(flags);
+                    var constructors = _type.GetConstructors(DefaultFlags);
                     if (constructors.Length > 0)
                     {
                         var count = constructors.Length;
